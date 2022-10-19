@@ -2,25 +2,25 @@ require('dotenv').config();
 
 
 const development = {
-    'username': process.env.USERNAME,
-    'password': process.env.PASSWORD,
-    'database': 'week5_homework',
-    'host'    : process.env.ENDPOINT,
-    'dialect' : 'mysql'
+'username': process.env.DB_USERNAME,
+'password': process.env.PASSWORD ,
+'database': 'week5_homework',
+'host' : process.env.ENDPOINT,
+'dialect' : 'mysql'
 };
 const test = {
-    'username': 'root',
-    'password': null,
-    'database': 'database_test',
-    'host'    : '127.0.0.1',
-    'dialect' : 'mysql'
+'username': 'root',
+'password': null,
+'database': 'database_test',
+'host' : '127.0.0.1',
+'dialect' : 'mysql'
 };
 const production = {
-    'username': 'root',
-    'password': null,
-    'database': 'database_production',
-    'host'    : '127.0.0.1',
-    'dialect' : 'mysql'
+'username': 'root',
+'password': null,
+'database': 'database_production',
+'host' : '127.0.0.1',
+'dialect' : 'mysql'
 };
 
 module.exports = {development, test, production};
