@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const {User, Posts} = require("../models"); //⭐
+const {User, post} = require("../models"); //⭐
 
 module.exports = async (req, res, next) => {
     const { authorization } = req.headers;
@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         //console.log("TEST;", userId)
         await User.findByPk(userId).then((user) => {
             res.locals.user = user;
-            //console.log(res.locals.user)
+            console.log(res.locals.user)
 // **** 반드시 next 먼저 호출해야함 안그러면 미들웨어 레벨 예외처리 걸려서 그 뒤에있는 미들웨어는 연결 x
             next();
         });
@@ -33,6 +33,6 @@ module.exports = async (req, res, next) => {
 };
 
 findPostById = async (postId) => {
-    const post = await Posts.findByPk(postId);
-    return post;
+    const posts = await post.findByPk(postId);
+    return posts;
 };

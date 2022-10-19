@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-class UserRepository {
+class UserRepository { 
     findUserByNickname = async (verifyFormat) => {
         const nickname = verifyFormat.nickname;
         const user = await User.findOne({where: {nickname}});
@@ -8,7 +8,8 @@ class UserRepository {
     };
 
     signup = async (nickname, password) => {
-        const registerUser = await User.create({where: {nickname, password}});
+        // const registerUser = await User.create({where: {nickname, password}});
+        const registerUser = await User.create({nickname, password});
         return registerUser;
     }
 

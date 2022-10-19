@@ -1,4 +1,4 @@
-const PostService = require('../service/postService')
+const PostService = require('../services/postService')
 
 class PostController {
     postService = new PostService();
@@ -10,7 +10,7 @@ class PostController {
 
     createPost = async(req, res, next)=> {
         const {title, postContent, password} = req.body;
-        const nickname = res.locals.user[0].nickname;
+        const nickname = res.locals.nickname;
         const createPostData = await this.postService.createPost(nickname, title, postContent, password);
         res.json({result: createPostData});
     };
@@ -37,8 +37,8 @@ class PostController {
 
     updateLike = async(req, res, next)=> {
         const {postId} = req.params;
-        const nickname = res.locals.user[0].nickname;
-        console.log(nickname)
+        const {user} = res.locals;
+        const nickname = user.nickname
         const updateLikeData = await this.postService.updateLike(postId, nickname);
         res.send(updateLikeData);
     };
