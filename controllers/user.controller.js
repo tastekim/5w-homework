@@ -8,13 +8,14 @@ const schema = Joi.object({
 
 class UserController {
 
-    userService = new UserService();
+    userService = new UserService(); 
 
     signup = async (req, res, next) => {
         try {
             const verifyFormat = await schema.validateAsync(req.body)
-            //console.log(verifyFormat);
+            console.log(verifyFormat);
             const registerUser = await this.userService.signup(verifyFormat);
+            console.log(registerUser);
             res.status(200).json({data: registerUser})
         } catch (error) {
             console.log(`${error.message}`);

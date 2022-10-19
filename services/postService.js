@@ -1,4 +1,4 @@
-const PostRepository = require('../repository/postRepository')
+const PostRepository = require('../repositories/postRepository')
 
 class PostService {
     postRepository = new PostRepository();

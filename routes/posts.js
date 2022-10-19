@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const PostController = require('../controller/postController');
+const PostController = require('../controllers/postController');
 const postController = new PostController();
 
-const authMiddleware = require("../middlewares/auth_middleware");
+const authMiddleware = require("../middlewares/auth-middlewares");
 
 
 //게시글 전체 목록
